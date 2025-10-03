@@ -1,3 +1,8 @@
+package tn.esprit.gestionzoo.main;
+
+import tn.esprit.gestionzoo.entities.Animal;
+import tn.esprit.gestionzoo.entities.Zoo;
+
 public class Main {
     public static void main(String[] args) {
         Animal chat = new Animal("Félidés", "Chat", 3, true);
@@ -5,7 +10,7 @@ public class Main {
         Animal lion = new Animal("Félidés", "Lion", 5, true);
 
         Zoo zoo1 = new Zoo("Safari Park", "Tunis");
-        Zoo zoo2 = new Zoo("Zoo Belvédère", "Tunis");
+        Zoo zoo2 = new Zoo("tn.esprit.gestionzoo.entities.Zoo Belvédère", "Tunis");
 
         System.out.println("-------- Ajout --------");
         zoo1.addAnimal(chat);
@@ -24,12 +29,12 @@ public class Main {
         zoo1.displayAnimals();
 
         for (int i = 0; i < 30; i++) {
-            zoo1.addAnimal(new Animal("Test", "Animal" + i, i, true));
+            zoo1.addAnimal(new Animal("Test", "tn.esprit.gestionzoo.entities.Animal" + i, i, true));
         }
-        System.out.println("Zoo plein ? " + zoo1.isZooFull());
+        System.out.println("tn.esprit.gestionzoo.entities.Zoo plein ? " + zoo1.isZooFull());
 
         zoo2.addAnimal(chien);
         Zoo plusGrand = Zoo.comparerZoo(zoo1, zoo2);
-        System.out.println("\nZoo avec le plus d’animaux : " + plusGrand.getName());
+        System.out.println("\ntn.esprit.gestionzoo.entities.Zoo avec le plus d’animaux : " + plusGrand.getName());
     }
 }
