@@ -12,7 +12,7 @@ public class Zoo {
         this.city = city;
 
         if (nbrCages > 25) {
-            System.out.println("⚠️ Nombre de cages limité à 25 !");
+            System.out.println(" Nombre de cages limité à 25 !");
             this.nbrCages = 25;
         } else {
             this.nbrCages = nbrCages;
