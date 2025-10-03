@@ -38,7 +38,7 @@ public class Zoo {
             return false;
         }
         if (searchAnimal(animal) != -1) {
-            System.out.println("⚠️ Animal déjà présent !");
+            System.out.println("Animal déjà présent !");
             return false;
         }
         animals[animalCount++] = animal;
