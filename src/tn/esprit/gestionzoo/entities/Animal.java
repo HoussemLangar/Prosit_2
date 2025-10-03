@@ -13,6 +13,18 @@ public class Animal {
         this.isMammal = isMammal;
     }
 
+    public void setFamily(String family) {
+        this.family = family;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setMammal(boolean mammal) {
+        isMammal = mammal;
+    }
+
     public String getFamily() {
         return family;
     }
@@ -30,12 +42,7 @@ public class Animal {
     }
 
     public void setAge(int age) {
-        if (age < 0) {
-            System.out.println(" L’âge ne peut pas être négatif. Mise à 0 par défaut.");
-            this.age = 0;
-        } else {
-            this.age = age;
-        }
+        this.age = age;
     }
 
     public void displayAnimal() {
