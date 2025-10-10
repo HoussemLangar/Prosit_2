@@ -32,19 +32,6 @@ public class Zoo {
                 " | Nombre de cages: " + nbrCages);
     }
 
-    public boolean addAnimal(Animal animal) {
-        if (isZooFull()) {
-            System.out.println(" Impossible d’ajouter, le zoo est plein !");
-            return false;
-        }
-        if (searchAnimal(animal) != -1) {
-            System.out.println("Animal déjà présent !");
-            return false;
-        }
-        animals[animalCount++] = animal;
-        return true;
-    }
-
     public void displayAnimals() {
         System.out.println("🐾 Animaux dans le zoo " + name + " :");
         for (int i = 0; i < animalCount; i++) {
@@ -52,26 +39,6 @@ public class Zoo {
         }
     }
 
-    public int searchAnimal(Animal animal) {
-        for (int i = 0; i < animalCount; i++) {
-            if (animals[i].getName().equalsIgnoreCase(animal.getName())) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public boolean removeAnimal(Animal animal) {
-        int index = searchAnimal(animal);
-        if (index == -1) return false;
-
-        for (int i = index; i < animalCount - 1; i++) {
-            animals[i] = animals[i + 1];
-        }
-        animals[animalCount - 1] = null;
-        animalCount--;
-        return true;
-    }
 
     public boolean isZooFull() {
         return animalCount >= nbrCages;
