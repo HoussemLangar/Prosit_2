@@ -12,19 +12,14 @@ public class Animal {
     public Animal(String family, String name, int age, boolean isMammal) {
         this.family = family;
         this.name = name;
-        setAge(age);
+        this.age = Math.max(age, 0);
         this.isMammal = isMammal;
     }
 
+    public String getFamily() { return family; }
+    public String getName() { return name; }
     public int getAge() { return age; }
-    public void setAge(int age) {
-        if (age < 0) {
-            System.out.println("⚠️ Âge invalide, mis à 0 par défaut !");
-            this.age = 0;
-        } else {
-            this.age = age;
-        }
-    }
+    public boolean isMammal() { return isMammal; }
 
     @Override
     public String toString() {

@@ -4,26 +4,22 @@ import tn.esprit.gestionzoo.entities.*;
 
 public class Main {
     public static void main(String[] args) {
+        Zoo zoo = new Zoo();
 
-        Aquatic aquatic = new Aquatic();
-        Terrestrial terrestrial = new Terrestrial();
-        Dolphin dolphin = new Dolphin();
-        Penguin penguin = new Penguin();
+        Dolphin d1 = new Dolphin("Delphinidae", "Flipper", 10, true, "Ocean", 25.5f);
+        Dolphin d2 = new Dolphin("Delphinidae", "Blue", 8, true, "Mer", 30f);
+        Penguin p1 = new Penguin("Spheniscidae", "Pingu", 4, false, "Antarctique", 15.2f);
+        Penguin p2 = new Penguin("Spheniscidae", "Snow", 6, false, "Bassin", 12f);
 
-        System.out.println(aquatic);
-        System.out.println(terrestrial);
-        System.out.println(dolphin);
-        System.out.println(penguin);
+        zoo.addAquaticAnimal(d1);
+        zoo.addAquaticAnimal(d2);
+        zoo.addAquaticAnimal(p1);
+        zoo.addAquaticAnimal(p2);
 
-        Dolphin dolphin2 = new Dolphin("Delphinidae", "Flipper", 8, true, "Océan", 25.4f);
-        Penguin penguin2 = new Penguin("Spheniscidae", "Pingo", 4, false, "Antarctique", 12.5f);
-        Terrestrial lion = new Terrestrial("Félidés", "Lion", 6, true, 4);
+        zoo.makeAllSwim();
+        zoo.displayCountByType();
+        System.out.println("\nProfondeur maximale des pingouins : " + zoo.getMaxPenguinDepth() + " m");
 
-        System.out.println(dolphin2);
-        System.out.println(penguin2);
-        System.out.println(lion);
-
-        aquatic.swim();
-        dolphin2.swim();
+        System.out.println("\nD1 == D2 ? " + d1.equals(d2));
     }
 }
