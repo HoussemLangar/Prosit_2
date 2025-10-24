@@ -4,10 +4,11 @@ public class Zoo {
     private Animal[] animals;
     private String name;
     private String city;
-    private final int nbrCages;
+    private int nbrCages;
     private int animalCount;
     private Aquatic[] aquaticAnimals;
     private int aquaticCount;
+    private int MAX_CAPACITY;
 
     public Zoo(String name, String city, int nbrCages) {
         setName(name);
@@ -24,6 +25,13 @@ public class Zoo {
         this.animalCount = 0;
         this.aquaticAnimals = new Aquatic[10];
         this.aquaticCount = 0;
+    }
+
+    public Zoo(String name, int capacity) {
+        this.name = name;
+        this.MAX_CAPACITY = capacity;
+        this.animals = new Animal[capacity];
+        this.animalCount = 0;
     }
 
     public Zoo() {
@@ -99,6 +107,24 @@ public class Zoo {
         return "Zoo{name='" + name +
                 "', city='" + city +
                 "', nbrCages=" + nbrCages + "}";
+    }
+
+    public void addAnimal(Animal animal) throws ZooFullException, InvalidAgeException {
+        if (animal.getAge() < 0) {
+            throw new InvalidAgeException("Âge d’animal invalide : l’âge ne peut pas être négatif.");
+        }
+
+        if (animalCount >= MAX_CAPACITY) {
+            throw new ZooFullException("Le zoo est plein, impossible d’ajouter un nouvel animal.");
+        }
+
+        animals[animalCount] = animal;
+        animalCount++;
+        System.out.println("✅ Animal ajouté : " + animal.getName());
+    }
+
+    public int getAnimalCount() {
+        return animalCount;
     }
 
     public String getName() { return name; }

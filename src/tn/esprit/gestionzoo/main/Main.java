@@ -4,22 +4,26 @@ import tn.esprit.gestionzoo.entities.*;
 
 public class Main {
     public static void main(String[] args) {
-        Zoo zoo = new Zoo();
+        Zoo zoo = new Zoo("Zoo de Tunis", 3);
 
-        Dolphin d1 = new Dolphin("Delphinidae", "Flipper", 10, true, "Ocean", 25.5f);
-        Dolphin d2 = new Dolphin("Delphinidae", "Blue", 8, true, "Mer", 30f);
-        Penguin p1 = new Penguin("Spheniscidae", "Pingu", 4, false, "Antarctique", 15.2f);
-        Penguin p2 = new Penguin("Spheniscidae", "Snow", 6, false, "Bassin", 12f);
+        Animal lion = new Animal("Félidés", "Lion", 5, true);
+        Animal dauphin = new Animal("Cétacés", "Dauphin", 8, true);
+        Animal pingouin = new Animal("Oiseaux", "Pingouin", 3, false);
+        Animal chat = new Animal("Félidés", "Chat", -2, true); // âge invalide
 
-        zoo.addAquaticAnimal(d1);
-        zoo.addAquaticAnimal(d2);
-        zoo.addAquaticAnimal(p1);
-        zoo.addAquaticAnimal(p2);
+        Animal[] animaux = { lion, dauphin, pingouin, chat, new Animal("Canidés", "Chien", 4, true) };
 
-        zoo.makeAllSwim();
-        zoo.displayCountByType();
-        System.out.println("\nProfondeur maximale des pingouins : " + zoo.getMaxPenguinDepth() + " m");
-
-        System.out.println("\nD1 == D2 ? " + d1.equals(d2));
+        for (Animal a : animaux) {
+            try {
+                zoo.addAnimal(a);
+            } catch (ZooFullException e) {
+                System.err.println("⚠️ " + e.getMessage());
+            } catch (InvalidAgeException e) {
+                System.err.println("⚠️ " + e.getMessage());
+            } finally {
+                System.out.println("Nombre total d’animaux : " + zoo.getAnimalCount());
+                System.out.println("----------------------------");
+            }
+        }
     }
 }
